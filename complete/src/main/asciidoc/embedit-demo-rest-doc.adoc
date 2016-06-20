@@ -1,0 +1,23 @@
+= EmbedIT demo REST documentation
+Daniel Kec;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+== Greeting controller
+
+=== Request
+include::{snippets}/greeting/http-request.adoc[]
+=== Response
+include::{snippets}/greeting/http-response.adoc[]
+
+==== CURL request
+include::{snippets}/greeting/curl-request.adoc[]
+
+image:emb.png["Company Logo",float="right",width=140]
+
+=== Spring REST Doc refence guide
+http://docs.spring.io/spring-restdocs/docs/1.0.x/reference/html5/
