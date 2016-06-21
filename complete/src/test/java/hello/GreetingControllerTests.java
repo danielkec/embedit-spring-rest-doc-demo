@@ -68,26 +68,20 @@ public class GreetingControllerTests {
             new JUnitRestDocumentation("target/generated-snippets");
 
     @Test
-    public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
-
-        this.mockMvc.perform(get("/greeting"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.content").value("Hello, World!"));
-    }
-
-    @Test
     public void paramGreetingShouldReturnTailoredMessage() throws Exception {
 
         this.mockMvc.perform(
                 get("/greeting")
-                        .param("name", "EmbedIT"))
+                        .param("name", "EmbedIT")
+                        .param("id", "5"))
                 .andDo(document("greeting"
-                        ,
-                        requestParameters(
+                        ,requestParameters(
                                 parameterWithName("name")
                                         .optional()
-                                        .description("Name to be greeted.")
+                                        .description("Name to be greeted."),
+                                parameterWithName("id")
+                                        .optional()
+                                        .description("id to identify")
                         )
                 ))
                 .andExpect(status().isOk())
